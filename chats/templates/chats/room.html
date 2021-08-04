@@ -12,6 +12,7 @@
     <input id="chat-message-submit" type="button" value="Send">
     {{ room_name|json_script:"room-name" }}
     <script>
+
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
         const chatSocket = new WebSocket(
@@ -24,7 +25,10 @@
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            document.querySelector('#chat-log').value += (data.message + '\n');
+            var dateOptions = {hour: 'numeric', minute: 'numeric', hour12: true};
+            var datetime = new Date(data['datetime']).toLocaleString('en', dateOptions);
+
+            document.querySelector('#chat-log').value += (name + ' ' + datetime+ '\n' + data.message + '\n\n');
         };
 
         chatSocket.onclose = function(e) {
