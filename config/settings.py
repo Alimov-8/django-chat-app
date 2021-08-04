@@ -142,4 +142,4 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home' 
 
 
-ASGI_APPLICATION = 'config.routing.application'
+ASGI_APPLICATION = "config.asgi.application"
