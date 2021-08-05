@@ -4,4 +4,4 @@ from .models import Message
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ['author', 'timestamp']
+    list_display = ['author', 'timestamp', 'room_name']

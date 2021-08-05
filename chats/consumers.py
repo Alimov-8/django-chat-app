@@ -6,12 +6,11 @@ from channels.generic.websocket import WebsocketConsumer
 from .models import Message  
 
 
-User = get_user_model()
-
+User = get_user_model(
 class ChatConsumer(WebsocketConsumer):
     # Load previous messages from database
     def fetch_messages(self, data):
-        messages = Message.last_20_messages()
+        messages = Message.last_20_messages(self.room_name)
         content = {
             'command': 'messages',
             'messages': self.messages_to_json(messages)
@@ -23,7 +22,8 @@ class ChatConsumer(WebsocketConsumer):
         author_user = User.objects.filter(username=author)[0]
         message = Message.objects.create(
             author=author_user, 
-            content=data['message'])
+            content=data['message'],
+            chat_id = self.room_name,)
         content = {
             'command': 'new_message',
             'message': self.message_to_json(message)
