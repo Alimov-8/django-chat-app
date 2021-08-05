@@ -6,7 +6,8 @@ from channels.generic.websocket import WebsocketConsumer
 from .models import Message  
 
 
-User = get_user_model(
+User = get_user_model()
+
 class ChatConsumer(WebsocketConsumer):
     # Load previous messages from database
     def fetch_messages(self, data):
