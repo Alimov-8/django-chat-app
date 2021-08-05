@@ -14,6 +14,7 @@
     <script>
 
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
+        var username = {{ username }};
 
         const chatSocket = new WebSocket(
             'ws://'
@@ -24,11 +25,13 @@
         );
 
         chatSocket.onmessage = function(e) {
-            const data = JSON.parse(e.data);
-            var dateOptions = {hour: 'numeric', minute: 'numeric', hour12: true};
-            var datetime = new Date(data['datetime']).toLocaleString('en', dateOptions);
-
-            document.querySelector('#chat-log').value += (name + ' ' + datetime+ '\n' + data.message + '\n\n');
+            const data = JSON.parse(e.data);         
+            const time = new Date(data.message.timestamp);
+            document.querySelector('#chat-log').value += (
+                data.message.author + ' ' +
+                time  + '\n\n' +
+                data.message.content + ' ' 
+                + '\n\n');
         };
 
         chatSocket.onclose = function(e) {
@@ -46,7 +49,9 @@
             const messageInputDom = document.querySelector('#chat-message-input');
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
-                'message': message
+                'message': message,
+                'command': 'new_message',
+                'from': username
             }));
             messageInputDom.value = '';
         };

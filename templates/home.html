@@ -3,7 +3,9 @@
     {% if user.is_authenticated %}
         <p>Hi {{ user.username }}!</p>
         <h2>Welcome to your Dashboard</h2>
+        <p><a href="{% url 'index' %}">Search Chat Rooms</a></p>
         <p><a href="{% url 'logout' %}">Log out</a></p>
+    
     {% else %}
         <p>You are not logged in.</p>
         <a href="{% url 'login' %}">Log In</a> | <a href="{% url 'signup' %}">Sign Up</a>
