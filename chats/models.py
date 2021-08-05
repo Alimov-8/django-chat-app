@@ -16,5 +16,5 @@ class Message(models.Model):
 
     def last_20_messages(room_name):
         messages_of_chat_id = Message.objects.filter(room_name=room_name)
-        return messages_of_chat_id.order_by('-timestamp').all()[:20]
+        return messages_of_chat_id.order_by('timestamp').all()[:20]
 

@@ -24,7 +24,7 @@ class ChatConsumer(WebsocketConsumer):
         message = Message.objects.create(
             author=author_user, 
             content=data['message'],
-            chat_id = self.room_name,)
+            room_name = self.room_name,)
         content = {
             'command': 'new_message',
             'message': self.message_to_json(message)
@@ -41,7 +41,7 @@ class ChatConsumer(WebsocketConsumer):
         return {
             'author': message.author.username,
             'content': message.content,
-            'timestamp': message.timestamp.isoformat()
+            'timestamp': message.timestamp.isoformat(),
         }
 
     # Choose the command
