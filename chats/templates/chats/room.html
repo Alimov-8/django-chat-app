@@ -24,14 +24,32 @@
             + '/'
         );
 
+        // On open calls fetch_messages funct from consumers
+        chatSocket.onopen = function(e) {
+            chatSocket.send(JSON.stringify({'command': 'fetch_messages' }));
+        }
+
         chatSocket.onmessage = function(e) {
-            const data = JSON.parse(e.data);         
+            const data = JSON.parse(e.data);
+            
+            // On Open Load Data from Databaase 
+            if ( data['command'] === 'messages' ) {
+                for ( let i=0; i<data['messages'].length; i++ ) {
+                    single_data = data['messages'][i];
+                    const time = new Date(single_data.timestamp);
+                    document.querySelector('#chat-log').value += (
+                        single_data.author + ' ' + time + '\n' + 
+                        single_data.content + ' ' + '\n\n');
+                    }
+            }
+
+            // Print Data from Input
+            else {
             const time = new Date(data.message.timestamp);
             document.querySelector('#chat-log').value += (
-                data.message.author + ' ' +
-                time  + '\n\n' +
-                data.message.content + ' ' 
-                + '\n\n');
+                data.message.author + ' ' + time + '\n' +
+                data.message.content + ' ' + '\n\n');
+            }
         };
 
         chatSocket.onclose = function(e) {
