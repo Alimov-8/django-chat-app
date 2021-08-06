@@ -57,5 +57,5 @@
         room_name coulm added into Message Module to connect messages with room
     
     
-  ##### ❗️ TODO:
-    📌 Wait next tasks
+  ### 📸 Chat Application
+    
