@@ -6,6 +6,8 @@
     📌 Implement a WebSocket client
     📌 Enable a channel layer with Redis
     📌 Make your consumer fully asynchronous
+    📌 Models to save and load data by some attribute
+    📌 JS onopen, onclick and etc.
 
   ### Resources: 
     🔗 https://channels.readthedocs.io/en/stable/tutorial/part_1.html
@@ -42,7 +44,18 @@
         
     • DateTime added to the msg
     
+    • Save message into database
+        Created Message Model and fetch and new message functions added  
+        fetch function - # Load previous messages from database (On Open condition)
+        new message function - # Creates new message (On Click new message submit button)
+        get_last_20_messages function from models.py
     
-  ##### ❗️ TODO:
-    📌 Database to save messages
-    📌 Style for chat application
+    • Load/Output data from database
+        On Open condition data loaded from database and prnt in room.html using JS script
+        
+    • Room name added
+        room_name coulm added into Message Module to connect messages with room
+    
+    
+  ### 📸 Chat Application
+    
