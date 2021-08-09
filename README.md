@@ -58,4 +58,20 @@
     
     
   ### 📸 Chat Application
+  
+  #### Registration Page
+  
+  <img src="media/photos/Registration.jpg" alt="" >
+  
+  #### Dashboard
+  
+  <img src="media/photos/Dashboard.jpg" alt="" >
+  
+  #### Search
+  
+  <img src="media/photos/Search.jpg" alt="" >
+  
+  #### Room "lobby"
+  
+  <img src="media/photos/Lobby.jpg" alt="" >
     
