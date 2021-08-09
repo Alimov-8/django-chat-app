@@ -2,9 +2,9 @@
 {% block content %}
     {% if user.is_authenticated %}
         <p>Hi {{ user.username }}!</p>
-        <h2>Welcome to your Dashboard</h2>
-        <p><a href="{% url 'index' %}">Search Chat Rooms</a></p>
-        <p><a href="{% url 'logout' %}">Log out</a></p>
+        <h2 style="color: crimson;">Welcome to your Dashboard</h2>
+        <p><a style="text-decoration: none;" href="{% url 'index' %}">Search Chat Rooms</a></p>
+        <p><a style="text-decoration: none;" href="{% url 'logout' %}">Log out</a></p>
     
     {% else %}
         <p>You are not logged in.</p>

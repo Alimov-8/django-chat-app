@@ -7,9 +7,34 @@
     <title>Chat Room</title>
 </head>
 <body>
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send">
+    <textarea 
+        style=
+            "background-color:rgb(255, 255, 255); 
+            color: rgb(0, 0, 0); 
+            border-radius: 25px;
+            padding: 25px;
+            font-weight:bold;" 
+            
+        id="chat-log" cols="100" rows="20">
+    </textarea><br>
+
+    <input id="chat-message-input" 
+    style=
+        "border-radius: 10px;
+        background-color: white; 
+        height: 40px; 
+        margin-top: 15px;
+        width: 765px;" 
+    type="text" size="100"><br>
+    
+    <input id="chat-message-submit" type="button" value="Send" 
+    style="
+        width: 100px; 
+        margin-top: 25px; 
+        height: 40px; 
+        border-radius: 5px; 
+        margin-left: 671px;">
+    
     {{ room_name|json_script:"room-name" }}
     <script>
 
