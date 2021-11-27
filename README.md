@@ -1,6 +1,6 @@
-# django-chat-app
-
-  ### Creating Chat Application:
+# Chat Application System 💬
+[Django Channels Documentation](https://channels.readthedocs.io/en/stable/introduction.html)
+  ### Development Porcess
     📌 Add Channels to your project
     📌 Build a WebSocket consumer and appropriate routing
     📌 Implement a WebSocket client
@@ -9,7 +9,7 @@
     📌 Models to save and load data by some attribute
     📌 JS onopen, onclick and etc.
 
-  ### Resources: 
+  ### Resources 
     🔗 https://channels.readthedocs.io/en/stable/tutorial/part_1.html
     🔗 Django3 by examples Book
     🔗 https://www.youtube.com/watch?v=xrKKRRC518Y
